@@ -48,7 +48,7 @@ public:
             cout << "ERROR connecting" << endl;
         }
 
-        cout << "Please enter the message: " << endl;
+        cout << "you: ";
         bzero(buffer,256);
 
         //escrevendo na variavel
@@ -71,3 +71,23 @@ public:
         close(sockfd);
     }
 };
+
+int main(int argc, char const *argv[]) {
+  char host[225];
+
+  std::cin.clear();
+
+  cout << ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"  << endl;
+  cout << "                            CHAT BK7                                 "  << endl;
+  cout << ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"  << endl << endl;
+
+
+  ClientSocket cli(1232);
+
+  //escrevendo na variavel
+  cout << "Adicione o host: ";
+  cin >> host;
+
+  cli.run(host);
+  return 0;
+}
